@@ -15,10 +15,16 @@
  *
  */
 function Dealer() {
+    const CardDeck = require('./CardDeck.js');
+    let carddeck = new CardDeck();
+
+    return carddeck.shuffle();
 
 // TODO: Array of cards, shuffle cards, draw cards, sum cards...
 
 }
+
+console.log(Dealer());
 
 
 /**

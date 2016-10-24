@@ -17,6 +17,7 @@ try {
     {
     let carddeck = new CardDeck();
     console.log(carddeck.printCardDeck());
+    console.log(carddeck.shuffle());
     }
 } catch (e) {
     console.error('ERROR: ', e.message);
