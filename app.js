@@ -26,11 +26,15 @@ try {
     console.log('The dealtCard: ' + dealtCard);
 
     let player1 = new Player();
-    console.log(player1.saveCard(dealtCard));
-    console.log(player1.saveCard(dealtCard));
-    console.log(player1.saveCard(dealtCard));
-    console.log('Player #1:' + player1.showHand());
-    console.log(player1.sumCards());
+    console.log(player1.saveCard(dealer.dealCard()));
+    console.log(player1.saveCard(dealer.dealCard()));
+    console.log(player1.saveCard(dealer.dealCard()));
+    console.log('Player #1:' + player1.showHand() + ' (' + player1.sumCards() + ')');
+
+    console.log(dealer.saveCard(dealer.dealCard()));
+    console.log(dealer.saveCard(dealer.dealCard()));
+    console.log(dealer.saveCard(dealer.dealCard()));
+    console.log('Dealer:' + dealer.showHand() + ' (' + dealer.sumCards() + ')');
     }
 } catch (e) {
     console.error('ERROR: ', e.message);

@@ -14,8 +14,8 @@
  * @constructor
  *
  */
-function Dealer(shuffled) {
-    let _shuffled;
+function Dealer(shuffled, hand = []) {
+    let _shuffled, _hand;
 
     Object.defineProperty(this, 'shuffled', {
 
@@ -30,8 +30,22 @@ function Dealer(shuffled) {
         }
     });
 
+    Object.defineProperty(this, 'hand', {
+
+        get: function() {
+            return _hand.slice();
+        },
+
+        set: function(cardsHand) {
+            let theCards = cardsHand.slice();
+
+            _hand = theCards;
+        }
+    });
+
     // Initialize the properties through the setters.
     this.shuffled = shuffled;
+    this.hand = hand;
 
 // TODO: Array of cards, shuffle cards, draw cards, sum cards...
 
@@ -52,8 +66,67 @@ Dealer.prototype.printCardDeck = function() {
  * @returns {Array}
  */
 Dealer.prototype.dealCard = function() {
-    let dealtCard = this.shuffled.splice(0, 1);
+    let cardDeck = this.shuffled.slice();
+    let dealtCard = cardDeck.splice(0, 1);
     return dealtCard;
+};
+
+/**
+ * Returns array representing instance.
+ *
+ * @returns {Array}
+ */
+Dealer.prototype.showHand = function() {
+    let copyOfHand = this.hand.slice();
+    let hand = '';
+    let mergedArr = [].concat.apply([], copyOfHand);
+
+    for (let i = 0; i < mergedArr.length; i += 1) {
+        let current = mergedArr[i];
+        for (let x = 0; x < current.length; x += 1) {
+            if (typeof current[x] === 'string') {
+                hand += ' ' + current[x];
+            }
+        }
+    }
+
+    this.hand = mergedArr;
+
+    return hand;
+};
+
+/**
+ * Returns array representing instance.
+ *
+ * @returns {Array}
+ */
+Dealer.prototype.saveCard = function(newCard) {
+    let copyOfAlreadyDealtCards = this.hand.slice();
+    let theCard = newCard;
+
+    copyOfAlreadyDealtCards.push(theCard);
+    this.hand = copyOfAlreadyDealtCards;
+    return;
+};
+
+/**
+ * Returns sum of players hand.
+ *
+ * @returns <String>
+ */
+Dealer.prototype.sumCards = function() {
+    let copyOfHand = this.hand.slice();
+    let sum = 0;
+
+    for (let i = 0; i < copyOfHand.length; i += 1) {
+        let current = copyOfHand[i];
+        for (let x = 0; x < current.length; x += 1) {
+            if (typeof current[x] === 'number') {
+                sum += current[x];
+            }
+        }
+    }
+    return sum;
 };
 
 
