@@ -68,6 +68,8 @@ Dealer.prototype.printCardDeck = function() {
 Dealer.prototype.dealCard = function() {
     let cardDeck = this.shuffled.slice();
     let dealtCard = cardDeck.splice(0, 1);
+
+    this.shuffled = cardDeck;
     return dealtCard;
 };
 

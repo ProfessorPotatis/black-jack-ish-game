@@ -20,9 +20,7 @@ try {
 
     let dealer = new Dealer(shuffledCards);
 
-    let dealtCard = dealer.dealCard();
     console.log('First element in shuffledCards: ' + shuffledCards[0]);
-    console.log('The dealtCard: ' + dealtCard);
 
     let player1 = new Player();
     player1.saveCard(dealer.dealCard());
