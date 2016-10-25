@@ -29,7 +29,7 @@ try {
     console.log(player1.saveCard(dealtCard));
     console.log(player1.saveCard(dealtCard));
     console.log(player1.saveCard(dealtCard));
-    console.log(player1.showHand());
+    console.log('Player #1:' + player1.showHand());
     console.log(player1.sumCards());
     }
 } catch (e) {

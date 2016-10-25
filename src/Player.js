@@ -41,9 +41,21 @@ function Player(hand = []) {
  */
 Player.prototype.showHand = function() {
     let copyOfHand = this.hand.slice();
+    let hand = '';
+    let mergedArr = [].concat.apply([], copyOfHand);
 
-    this.hand = [].concat.apply([], copyOfHand);
-    return this.hand;
+    for (let i = 0; i < mergedArr.length; i += 1) {
+        let current = mergedArr[i];
+        for (let x = 0; x < current.length; x += 1) {
+            if (typeof current[x] === 'string') {
+                hand += ' ' + current[x];
+            }
+        }
+    }
+
+    this.hand = mergedArr;
+
+    return hand;
 };
 
 /**
