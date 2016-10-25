@@ -27,7 +27,10 @@ try {
 
     let player1 = new Player();
     console.log(player1.saveCard(dealtCard));
+    console.log(player1.saveCard(dealtCard));
+    console.log(player1.saveCard(dealtCard));
     console.log(player1.showHand());
+    console.log(player1.sumCards());
     }
 } catch (e) {
     console.error('ERROR: ', e.message);

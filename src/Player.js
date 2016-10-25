@@ -40,6 +40,9 @@ function Player(hand = []) {
  * @returns {Array}
  */
 Player.prototype.showHand = function() {
+    let copyOfHand = this.hand.slice();
+
+    this.hand = [].concat.apply([], copyOfHand);
     return this.hand;
 };
 
@@ -55,6 +58,26 @@ Player.prototype.saveCard = function(newCard) {
     copyOfAlreadyDealtCards.push(theCard);
     this.hand = copyOfAlreadyDealtCards;
     return;
+};
+
+/**
+ * Returns sum of players hand.
+ *
+ * @returns <String>
+ */
+Player.prototype.sumCards = function() {
+    let copyOfHand = this.hand.slice();
+    let sum = 0;
+
+    for (let i = 0; i < copyOfHand.length; i += 1) {
+        let current = copyOfHand[i];
+        for (let x = 0; x < current.length; x += 1) {
+            if (typeof current[x] === 'number') {
+                sum += current[x];
+            }
+        }
+    }
+    return sum;
 };
 
 
