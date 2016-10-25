@@ -46,7 +46,15 @@ Dealer.prototype.printCardDeck = function() {
     return this.shuffled;
 };
 
-//console.log(Dealer());
+/**
+ * Returns array representing instance.
+ *
+ * @returns {Array}
+ */
+Dealer.prototype.dealCard = function() {
+    let dealtCard = this.shuffled.splice(0, 1);
+    return dealtCard;
+};
 
 
 /**

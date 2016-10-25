@@ -13,13 +13,17 @@ try {
     const CardTable = require('./src/CardTable.js');
     const CardDeck = require('./src/CardDeck.js');
 
-
+    // A game of 21
     {
     let carddeck = new CardDeck();
     let shuffledCards = carddeck.shuffle();
 
     let dealer = new Dealer(shuffledCards);
     console.log(dealer.printCardDeck());
+
+    let dealtCard = dealer.dealCard();
+    console.log('First element in shuffledCards: ' + shuffledCards[0]);
+    console.log('The dealtCard: ' + dealtCard);
     }
 } catch (e) {
     console.error('ERROR: ', e.message);
