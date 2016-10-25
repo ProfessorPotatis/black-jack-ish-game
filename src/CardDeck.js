@@ -20,7 +20,7 @@ function CardDeck(cards = []) {
     Object.defineProperty(this, 'cards', {
 
         get: function() {
-            return _cards;
+            return _cards.slice();
         },
 
         set: function(cardsArr) {

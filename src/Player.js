@@ -14,11 +14,48 @@
  * @constructor
  *
  */
-function Player() {
+function Player(hand = []) {
+    let _hand;
 
-// TODO: Keep track of sum of cards and stop when sum is equal to or greater than 15.
+    Object.defineProperty(this, 'hand', {
 
+        get: function() {
+            return _hand.slice();
+        },
+
+        set: function(cardsHand) {
+            let theCards = cardsHand.slice();
+
+            _hand = theCards;
+        }
+    });
+
+    // Initialize the properties through the setters.
+    this.hand = hand;
 }
+
+/**
+ * Returns array representing instance.
+ *
+ * @returns {Array}
+ */
+Player.prototype.showHand = function() {
+    return this.hand;
+};
+
+/**
+ * Returns array representing instance.
+ *
+ * @returns {Array}
+ */
+Player.prototype.saveCard = function(newCard) {
+    let copyOfAlreadyDealtCards = this.hand.slice();
+    let theCard = newCard;
+
+    copyOfAlreadyDealtCards.push(theCard);
+    this.hand = copyOfAlreadyDealtCards;
+    return;
+};
 
 
 /**

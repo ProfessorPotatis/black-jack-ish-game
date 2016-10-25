@@ -24,6 +24,10 @@ try {
     let dealtCard = dealer.dealCard();
     console.log('First element in shuffledCards: ' + shuffledCards[0]);
     console.log('The dealtCard: ' + dealtCard);
+
+    let player1 = new Player();
+    console.log(player1.saveCard(dealtCard));
+    console.log(player1.showHand());
     }
 } catch (e) {
     console.error('ERROR: ', e.message);

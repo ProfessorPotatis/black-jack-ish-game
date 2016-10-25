@@ -20,7 +20,7 @@ function Dealer(shuffled) {
     Object.defineProperty(this, 'shuffled', {
 
         get: function() {
-            return _shuffled;
+            return _shuffled.slice();
         },
 
         set: function(cardsArr) {
