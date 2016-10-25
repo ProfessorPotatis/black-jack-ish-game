@@ -16,8 +16,10 @@ try {
 
     {
     let carddeck = new CardDeck();
-    console.log(carddeck.printCardDeck());
-    console.log(carddeck.shuffle());
+    let shuffledCards = carddeck.shuffle();
+
+    let dealer = new Dealer(shuffledCards);
+    console.log(dealer.printCardDeck());
     }
 } catch (e) {
     console.error('ERROR: ', e.message);

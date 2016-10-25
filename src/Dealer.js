@@ -14,17 +14,39 @@
  * @constructor
  *
  */
-function Dealer() {
-    const CardDeck = require('./CardDeck.js');
-    let carddeck = new CardDeck();
+function Dealer(shuffled) {
+    let _shuffled;
 
-    return carddeck.shuffle();
+    Object.defineProperty(this, 'shuffled', {
+
+        get: function() {
+            return _shuffled;
+        },
+
+        set: function(cardsArr) {
+            let theCards = cardsArr.slice();
+
+            _shuffled = theCards;
+        }
+    });
+
+    // Initialize the properties through the setters.
+    this.shuffled = shuffled;
 
 // TODO: Array of cards, shuffle cards, draw cards, sum cards...
 
 }
 
-console.log(Dealer());
+/**
+ * Returns array representing instance.
+ *
+ * @returns {Array}
+ */
+Dealer.prototype.printCardDeck = function() {
+    return this.shuffled;
+};
+
+//console.log(Dealer());
 
 
 /**
