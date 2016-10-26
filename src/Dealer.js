@@ -53,15 +53,6 @@ function Dealer(shuffled, hand = []) {
  *
  * @returns {Array}
  */
-Dealer.prototype.printCardDeck = function() {
-    return this.shuffled;
-};
-
-/**
- * Returns array representing instance.
- *
- * @returns {Array}
- */
 Dealer.prototype.dealCard = function() {
     let cardDeck = this.shuffled.slice();
     let dealtCard = cardDeck.splice(0, 1);

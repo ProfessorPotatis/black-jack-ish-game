@@ -48,15 +48,6 @@ function CardDeck(cards = []) {
 
 
 /**
- * Returns array representing instance.
- *
- * @returns {Array}
- */
-CardDeck.prototype.printCardDeck = function() {
-    return this.cards;
-};
-
-/**
  * Returns shuffled array representing instance.
  *
  * @returns {Array}

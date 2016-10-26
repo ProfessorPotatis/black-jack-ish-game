@@ -13,7 +13,7 @@ try {
     const CardTable = require('./src/CardTable.js');
     const CardDeck = require('./src/CardDeck.js');
 
-    // A game of 21
+    // A game of 21 (1 player against the dealer)
     {
     let carddeck = new CardDeck();
     let shuffledCards = carddeck.shuffle();
