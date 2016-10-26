@@ -89,16 +89,14 @@ CardTable.prototype.printResult = function() {
         str += 'Dealer: -\n';
         str += 'Dealer wins!';
     } else if (this.pSumCards === 21 || this.pSumCards < 21 && this.pShowHand.length === 15) {
-        str += ' WINNER!\n';
-        str += 'Dealer: -\n';
+        str += '\nDealer: -\n';
         str += 'Player #1 wins!';
     } else if (this.dSumCards > 21) {
         str += '\nDealer:' + this.dShowHand + ' (' + this.dSumCards + ')';
         str += ' BUSTED!\n';
         str += 'Player #1 wins!';
     } else if (this.dSumCards === 21 || this.dSumCards === this.pSumCards || this.dSumCards > this.pSumCards) {
-        str += '\nDealer:' + this.dShowHand + ' (' + this.dSumCards + ')';
-        str += ' WINNER!\n';
+        str += '\nDealer:' + this.dShowHand + ' (' + this.dSumCards + ')\n';
         str += 'Dealer wins!';
     }
 
