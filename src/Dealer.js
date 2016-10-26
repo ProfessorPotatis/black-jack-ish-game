@@ -118,17 +118,29 @@ Dealer.prototype.saveCard = function(newCard) {
  */
 Dealer.prototype.sumCards = function() {
     let copyOfHand = this.hand.slice();
-    let sum = 0;
+    let sum = [];
 
     for (let i = 0; i < copyOfHand.length; i += 1) {
         let current = copyOfHand[i];
         for (let x = 0; x < current.length; x += 1) {
             if (typeof current[x] === 'number') {
-                sum += current[x];
+                sum.push(current[x]);
             }
         }
     }
-    return sum;
+
+    let totalSum = sum.reduce(function(previousValue, currentValue) {
+        return previousValue + currentValue;
+    });
+
+    if (sum.includes(1) && totalSum <= 8) {
+        sum.splice(sum.indexOf(1), 1, 14);
+        totalSum = sum.reduce(function(previousValue, currentValue) {
+            return previousValue + currentValue;
+        });
+    }
+
+    return totalSum;
 };
 
 
