@@ -127,6 +127,10 @@ Dealer.prototype.sumCards = function() {
     return totalSum;
 };
 
+Dealer.prototype.tossCards = function() {
+    this.hand = [];
+};
+
 
 /**
 *  Exports.
