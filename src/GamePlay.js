@@ -12,7 +12,10 @@
  * Creates a JavaScript GamePlay instance.
  *
  * @constructor
- *
+ * @param {Object} dealer - Instance of Dealer.js.
+ * @param {Object} player - Instance of Player.js.
+ * @param {Object} dplayer - Instance of Player.js.
+ * @param {Object} cardtable - Instance of CardTable.js.
  */
 function GamePlay(dealer, player, dplayer, cardtable) {
     let _dealer, _player, _dplayer, _cardtable;
@@ -20,11 +23,11 @@ function GamePlay(dealer, player, dplayer, cardtable) {
     Object.defineProperty(this, 'dealer', {
 
         get: function() {
-            return _dealer;
+            return Object.create(_dealer);
         },
 
         set: function(theDealer) {
-            let zeDealer = theDealer;
+            let zeDealer = Object.create(theDealer);
 
             _dealer = zeDealer;
         }
@@ -33,11 +36,11 @@ function GamePlay(dealer, player, dplayer, cardtable) {
     Object.defineProperty(this, 'player', {
 
         get: function() {
-            return _player;
+            return Object.create(_player);
         },
 
         set: function(thePlayer) {
-            let zePlayer = thePlayer;
+            let zePlayer = Object.create(thePlayer);
 
             _player = zePlayer;
         }
@@ -46,11 +49,11 @@ function GamePlay(dealer, player, dplayer, cardtable) {
     Object.defineProperty(this, 'dplayer', {
 
         get: function() {
-            return _dplayer;
+            return Object.create(_dplayer);
         },
 
         set: function(thePlayer) {
-            let zePlayer = thePlayer;
+            let zePlayer = Object.create(thePlayer);
 
             _dplayer = zePlayer;
         }
@@ -59,11 +62,11 @@ function GamePlay(dealer, player, dplayer, cardtable) {
     Object.defineProperty(this, 'cardtable', {
 
         get: function() {
-            return _cardtable;
+            return Object.create(_cardtable);
         },
 
         set: function(theCardTable) {
-            let zeCardTable = theCardTable;
+            let zeCardTable = Object.create(theCardTable);
 
             _cardtable = zeCardTable;
         }

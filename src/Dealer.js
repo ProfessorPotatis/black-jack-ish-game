@@ -12,6 +12,7 @@
  * Creates a JavaScript Dealer instance.
  *
  * @constructor
+ * @param {Array} shuffled - Shuffled carddeck.
  *
  */
 function Dealer(shuffled) {
@@ -34,12 +35,10 @@ function Dealer(shuffled) {
     this.shuffled = shuffled;
 }
 
-Dealer.prototype.cards = function() {
-    return this.shuffled;
-};
-
 /**
- * Returns array representing instance.
+ * Returns the dealt card.
+ * If carddeck is down to last card a new carddeck is created.
+ * Sets shuffled to the new shuffled carddeck.
  *
  * @returns {Array}
  */

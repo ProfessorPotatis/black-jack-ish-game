@@ -12,6 +12,10 @@
  * Creates a JavaScript CardTable instance.
  *
  * @constructor
+ * @param {string} pShowHand - Players cards on hand.
+ * @param {string} pSumCards - Players sum of cards on hand.
+ * @param {string} dShowHand - Dealers cards on hand.
+ * @param {string} dSumCards - Dealers sum of cards on hand.
  *
  */
 function CardTable(pShowHand = '', pSumCards = '', dShowHand = '', dSumCards = '') {
@@ -76,6 +80,11 @@ function CardTable(pShowHand = '', pSumCards = '', dShowHand = '', dSumCards = '
     this.dSumCards = dSumCards;
 }
 
+/**
+ * Clones new instance object and sets new parameters.
+ *
+ * @returns {Object} - Copy.
+ */
 CardTable.prototype.clone = function(p1, p2, p3, p4) {
     let copy = Object.create(CardTable.prototype);
 

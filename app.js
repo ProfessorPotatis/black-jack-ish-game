@@ -21,14 +21,14 @@ try {
 
     let dealer = new Dealer(shuffledCards);
 
-    let cardtableTest = new CardTable();
+    let cardtable = new CardTable();
 
     for (let i = 0; i < 15; i += 1) {
         let player = new Player();
         let dplayer = new Player();
-        let gameplay = new GamePlay(dealer, player, dplayer, cardtableTest);
+        let gameplay = new GamePlay(dealer, player, dplayer, cardtable);
 
-        console.log('Player #' + (i + 1) + ':\n');
+        console.log('Player #' + (i + 1) + ':');
         gameplay.play();
         console.log('---------------------------');
     }

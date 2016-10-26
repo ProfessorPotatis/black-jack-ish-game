@@ -12,6 +12,7 @@
  * Creates a JavaScript Player instance.
  *
  * @constructor
+ * @param {Array} hand - Players cards on hand.
  *
  */
 function Player(hand = []) {
@@ -36,7 +37,7 @@ function Player(hand = []) {
 
 
 /**
- * Returns array representing instance.
+ * Returns array representing instance and sets new parameter of object.
  *
  * @returns {Array}
  */
@@ -56,9 +57,8 @@ Player.prototype.showHand = function() {
 };
 
 /**
- * Returns array representing instance.
+ * Saves the dealt card into array and sets the objects hand to new array.
  *
- * @returns {Array}
  */
 Player.prototype.saveCard = function(newCard) {
     let copyOfAlreadyDealtCards = this.hand.slice();
@@ -72,7 +72,7 @@ Player.prototype.saveCard = function(newCard) {
 };
 
 /**
- * Returns sum of players hand.
+ * Returns string representing sum of players hand.
  *
  * @returns <String>
  */

@@ -12,6 +12,7 @@
  * Creates a JavaScript CardDeck instance.
  *
  * @constructor
+ * @param {Array} cards - Array containing the carddeck.
  *
  */
 function CardDeck(cards = []) {
