@@ -20,18 +20,24 @@ try {
 
     let dealer = new Dealer(shuffledCards);
 
+    console.log(shuffledCards);
     console.log('First element in shuffledCards: ' + shuffledCards[0]);
 
     let player1 = new Player();
+
+    /*while (player1.sumCards() <= 15) {
+        player1.saveCard(dealer.dealCard());
+        player1.sumCards();
+    }*/
     player1.saveCard(dealer.dealCard());
     player1.saveCard(dealer.dealCard());
     player1.saveCard(dealer.dealCard());
-    player1.mergeArray();
+    console.log(player1.sumCards());
 
     dealer.saveCard(dealer.dealCard());
     dealer.saveCard(dealer.dealCard());
     dealer.saveCard(dealer.dealCard());
-    dealer.mergeArray();
+    console.log(dealer.sumCards());
 
     let cardtable = new CardTable(player1.showHand(), player1.sumCards(), dealer.showHand(), dealer.sumCards());
     console.log(cardtable.printResult());

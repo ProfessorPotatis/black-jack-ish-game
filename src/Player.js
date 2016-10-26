@@ -34,20 +34,6 @@ function Player(hand = []) {
     this.hand = hand;
 }
 
-/**
- * Returns array representing instance.
- *
- * @returns {Array}
- */
-Player.prototype.mergeArray = function() {
-    let copyOfHand = this.hand.slice();
-    let mergedArr = [].concat.apply([], copyOfHand);
-    let mergeAgain = [].concat.apply([], mergedArr);
-
-    this.hand = mergeAgain;
-
-    return;
-};
 
 /**
  * Returns array representing instance.
@@ -79,7 +65,9 @@ Player.prototype.saveCard = function(newCard) {
     let theCard = newCard;
 
     copyOfAlreadyDealtCards.push(theCard);
-    this.hand = copyOfAlreadyDealtCards;
+    let mergedArr = [].concat.apply([], copyOfAlreadyDealtCards);
+    let mergeAgain = [].concat.apply([], mergedArr);
+    this.hand = mergeAgain;
     return;
 };
 

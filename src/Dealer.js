@@ -73,20 +73,6 @@ Dealer.prototype.dealCard = function() {
     return dealtCard;
 };
 
-/**
- * Returns array representing instance.
- *
- * @returns {Array}
- */
-Dealer.prototype.mergeArray = function() {
-    let copyOfHand = this.hand.slice();
-    let mergedArr = [].concat.apply([], copyOfHand);
-    let mergeAgain = [].concat.apply([], mergedArr);
-
-    this.hand = mergeAgain;
-
-    return;
-};
 
 /**
  * Returns array representing instance.
@@ -119,7 +105,9 @@ Dealer.prototype.saveCard = function(newCard) {
     let theCard = newCard;
 
     copyOfAlreadyDealtCards.push(theCard);
-    this.hand = copyOfAlreadyDealtCards;
+    let mergedArr = [].concat.apply([], copyOfAlreadyDealtCards);
+    let mergeAgain = [].concat.apply([], mergedArr);
+    this.hand = mergeAgain;
     return;
 };
 
