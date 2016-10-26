@@ -26,11 +26,13 @@ try {
     player1.saveCard(dealer.dealCard());
     player1.saveCard(dealer.dealCard());
     player1.saveCard(dealer.dealCard());
+    player1.mergeArray();
     console.log('Player #1:' + player1.showHand() + ' (' + player1.sumCards() + ')');
 
     dealer.saveCard(dealer.dealCard());
     dealer.saveCard(dealer.dealCard());
     dealer.saveCard(dealer.dealCard());
+    dealer.mergeArray();
     console.log('Dealer:' + dealer.showHand() + ' (' + dealer.sumCards() + ')');
     }
 } catch (e) {

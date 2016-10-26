@@ -78,21 +78,33 @@ Dealer.prototype.dealCard = function() {
  *
  * @returns {Array}
  */
+Dealer.prototype.mergeArray = function() {
+    let copyOfHand = this.hand.slice();
+    let mergedArr = [].concat.apply([], copyOfHand);
+    let mergeAgain = [].concat.apply([], mergedArr);
+
+    this.hand = mergeAgain;
+
+    return;
+};
+
+/**
+ * Returns array representing instance.
+ *
+ * @returns {Array}
+ */
 Dealer.prototype.showHand = function() {
     let copyOfHand = this.hand.slice();
+    //console.log(copyOfHand);
     let hand = '';
-    let mergedArr = [].concat.apply([], copyOfHand);
 
-    for (let i = 0; i < mergedArr.length; i += 1) {
-        let current = mergedArr[i];
-        for (let x = 0; x < current.length; x += 1) {
-            if (typeof current[x] === 'string') {
-                hand += ' ' + current[x];
-            }
+    for (let i = 0; i < copyOfHand.length; i += 1) {
+        if (typeof copyOfHand[i] === 'string') {
+            hand += ' ' + copyOfHand[i];
         }
     }
 
-    this.hand = mergedArr;
+    this.hand = copyOfHand;
 
     return hand;
 };
@@ -121,11 +133,8 @@ Dealer.prototype.sumCards = function() {
     let sum = [];
 
     for (let i = 0; i < copyOfHand.length; i += 1) {
-        let current = copyOfHand[i];
-        for (let x = 0; x < current.length; x += 1) {
-            if (typeof current[x] === 'number') {
-                sum.push(current[x]);
-            }
+        if (typeof copyOfHand[i] === 'number') {
+            sum.push(copyOfHand[i]);
         }
     }
 
