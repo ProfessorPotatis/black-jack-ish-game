@@ -27,6 +27,8 @@ try {
     player1.saveCard(dealer.dealCard());
     player1.saveCard(dealer.dealCard());
     player1.mergeArray();
+
+    let cardtable = new CardTable();
     console.log('Player #1:' + player1.showHand() + ' (' + player1.sumCards() + ')');
 
     dealer.saveCard(dealer.dealCard());
