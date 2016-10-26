@@ -28,14 +28,13 @@ try {
     player1.saveCard(dealer.dealCard());
     player1.mergeArray();
 
-    let cardtable = new CardTable();
-    console.log('Player #1:' + player1.showHand() + ' (' + player1.sumCards() + ')');
-
     dealer.saveCard(dealer.dealCard());
     dealer.saveCard(dealer.dealCard());
     dealer.saveCard(dealer.dealCard());
     dealer.mergeArray();
-    console.log('Dealer:' + dealer.showHand() + ' (' + dealer.sumCards() + ')');
+
+    let cardtable = new CardTable(player1.showHand(), player1.sumCards(), dealer.showHand(), dealer.sumCards());
+    console.log(cardtable.printResult());
     }
 } catch (e) {
     console.error('ERROR: ', e.message);

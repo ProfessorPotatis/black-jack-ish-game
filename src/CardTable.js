@@ -20,11 +20,11 @@ function CardTable(pShowHand, pSumCards, dShowHand, dSumCards) {
     Object.defineProperty(this, 'pShowHand', {
 
         get: function() {
-            return _pShowHand.slice();
+            return _pShowHand;
         },
 
         set: function(pHand) {
-            let theHand = pHand.slice();
+            let theHand = pHand;
 
             _pShowHand = theHand;
         }
@@ -33,11 +33,11 @@ function CardTable(pShowHand, pSumCards, dShowHand, dSumCards) {
     Object.defineProperty(this, 'pSumCards', {
 
         get: function() {
-            return _pSumCards.slice();
+            return _pSumCards;
         },
 
         set: function(pSum) {
-            let theSum = pSum.slice();
+            let theSum = pSum;
 
             _pSumCards = theSum;
         }
@@ -46,11 +46,11 @@ function CardTable(pShowHand, pSumCards, dShowHand, dSumCards) {
     Object.defineProperty(this, 'dShowHand', {
 
         get: function() {
-            return _dShowHand.slice();
+            return _dShowHand;
         },
 
         set: function(dHand) {
-            let theHand = dHand.slice();
+            let theHand = dHand;
 
             _dShowHand = theHand;
         }
@@ -59,11 +59,11 @@ function CardTable(pShowHand, pSumCards, dShowHand, dSumCards) {
     Object.defineProperty(this, 'dSumCards', {
 
         get: function() {
-            return _dSumCards.slice();
+            return _dSumCards;
         },
 
         set: function(dSum) {
-            let theSum = dSum.slice();
+            let theSum = dSum;
 
             _dSumCards = theSum;
         }
@@ -78,6 +78,19 @@ function CardTable(pShowHand, pSumCards, dShowHand, dSumCards) {
 // TODO: This is where players and dealers hand are presented and compared to figure out the winner.
 
 }
+
+/**
+ * Returns array representing instance.
+ *
+ * @returns {Array}
+ */
+CardTable.prototype.printResult = function() {
+    let str = '';
+    str += 'Player #1:' + this.pShowHand + ' (' + this.pSumCards + ')\n';
+    str += 'Dealer:' + this.dShowHand + ' (' + this.dSumCards + ')';
+
+    return str;
+};
 
 
 /**
