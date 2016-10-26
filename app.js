@@ -20,27 +20,52 @@ try {
 
     let dealer = new Dealer(shuffledCards);
 
-    console.log(shuffledCards);
     console.log('First element in shuffledCards: ' + shuffledCards[0]);
 
     let player1 = new Player();
 
-    /*while (player1.sumCards() <= 15) {
+    player1.saveCard(dealer.dealCard());
+    let numOfCards = 1;
+    while (player1.sumCards() <= 15 && numOfCards <= 5) {
         player1.saveCard(dealer.dealCard());
-        player1.sumCards();
-    }*/
-    player1.saveCard(dealer.dealCard());
-    player1.saveCard(dealer.dealCard());
-    player1.saveCard(dealer.dealCard());
-    console.log(player1.sumCards());
+        numOfCards += 1;
+    }
 
-    dealer.saveCard(dealer.dealCard());
-    dealer.saveCard(dealer.dealCard());
-    dealer.saveCard(dealer.dealCard());
-    console.log(dealer.sumCards());
+    if (player1.sumCards() === 21 || player1.sumCards() < 21 && numOfCards === 5) {
+        let cardtable = new CardTable(player1.showHand(), player1.sumCards());
+        console.log(cardtable.printResult());
+    } else if (player1.sumCards() > 21) {
+        let cardtable1 = new CardTable(player1.showHand(), player1.sumCards());
+        console.log(cardtable1.printResult());
+    } else if (player1.sumCards() < 21) {
+        dealer.saveCard(dealer.dealCard());
+        while (dealer.sumCards() < player1.sumCards() && dealer.sumCards() !== player1.sumCards()) {
+            dealer.saveCard(dealer.dealCard());
+        }
+        let cardtable2 = new CardTable(player1.showHand(), player1.sumCards(), dealer.showHand(), dealer.sumCards());
+        console.log(cardtable2.printResult());
+    }
 
-    let cardtable = new CardTable(player1.showHand(), player1.sumCards(), dealer.showHand(), dealer.sumCards());
-    console.log(cardtable.printResult());
+    /*if (player1.sumCards() < 21 && numOfCards === 5) {
+        dealer.saveCard(dealer.dealCard());
+        let numOfCards = 1;
+        while (dealer.sumCards() <= 15 && numOfCards <= 5) {
+            dealer.saveCard(dealer.dealCard());
+            numOfCards += 1;
+        }
+    }
+    /*player1.saveCard(dealer.dealCard());
+    player1.saveCard(dealer.dealCard());
+    player1.saveCard(dealer.dealCard());
+    console.log(player1.sumCards());*/
+
+    /*dealer.saveCard(dealer.dealCard());
+    dealer.saveCard(dealer.dealCard());
+    dealer.saveCard(dealer.dealCard());
+    console.log(dealer.sumCards());*/
+
+    //let cardtable = new CardTable(player1.showHand(), player1.sumCards(), dealer.showHand(), dealer.sumCards());
+    //console.log(cardtable.printResult());
     }
 } catch (e) {
     console.error('ERROR: ', e.message);

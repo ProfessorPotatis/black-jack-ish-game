@@ -14,7 +14,7 @@
  * @constructor
  *
  */
-function CardTable(pShowHand, pSumCards, dShowHand, dSumCards) {
+function CardTable(pShowHand = '', pSumCards = '', dShowHand = '', dSumCards = '') {
     let _pShowHand, _pSumCards, _dShowHand, _dSumCards;
 
     Object.defineProperty(this, 'pShowHand', {
@@ -75,19 +75,33 @@ function CardTable(pShowHand, pSumCards, dShowHand, dSumCards) {
     this.dShowHand = dShowHand;
     this.dSumCards = dSumCards;
 
-// TODO: This is where players and dealers hand are presented and compared to figure out the winner.
-
 }
 
 /**
- * Returns array representing instance.
+ * Returns string representing result of game.
  *
- * @returns {Array}
+ * @returns <String>
  */
 CardTable.prototype.printResult = function() {
     let str = '';
-    str += 'Player #1:' + this.pShowHand + ' (' + this.pSumCards + ')\n';
-    str += 'Dealer:' + this.dShowHand + ' (' + this.dSumCards + ')';
+    str += 'Player #1:' + this.pShowHand + ' (' + this.pSumCards + ')';
+    if (this.pSumCards > 21) {
+        str += ' BUSTED!\n';
+        str += 'Dealer: -\n';
+        str += 'Dealer wins!';
+    } else if (this.pSumCards === 21 || this.pSumCards < 21 && this.pShowHand.length === 15) {
+        str += ' WINNER!\n';
+        str += 'Dealer: -\n';
+        str += 'Player #1 wins!';
+    } else if (this.dSumCards > 21) {
+        str += '\nDealer:' + this.dShowHand + ' (' + this.dSumCards + ')';
+        str += ' BUSTED!\n';
+        str += 'Player #1 wins!';
+    } else if (this.dSumCards === 21 || this.dSumCards === this.pSumCards || this.dSumCards > this.pSumCards) {
+        str += '\nDealer:' + this.dShowHand + ' (' + this.dSumCards + ')';
+        str += ' WINNER!\n';
+        str += 'Dealer wins!';
+    }
 
     return str;
 };
