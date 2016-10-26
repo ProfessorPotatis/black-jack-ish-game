@@ -20,8 +20,6 @@ try {
 
     let dealer = new Dealer(shuffledCards);
 
-    console.log('First element in shuffledCards: ' + shuffledCards[0]);
-
     let player1 = new Player();
 
     player1.saveCard(dealer.dealCard());
