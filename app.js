@@ -14,7 +14,12 @@ try {
     const GamePlay = require('./src/GamePlay.js');
     const CardTable = require('./src/CardTable.js');
 
-    // A game of 21 (15 players against the dealer)
+    /*
+    * A game of 21
+    * 15 players against the dealer.
+    * Reason for using 15 players is to show that a new carddeck is created
+    * when there are no cards left.
+    */
     {
     let carddeck = new CardDeck();
     let shuffledCards = carddeck.shuffle();
