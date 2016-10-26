@@ -74,7 +74,6 @@ function CardTable(pShowHand = '', pSumCards = '', dShowHand = '', dSumCards = '
     this.pSumCards = pSumCards;
     this.dShowHand = dShowHand;
     this.dSumCards = dSumCards;
-
 }
 
 /**

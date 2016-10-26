@@ -44,8 +44,6 @@ function CardDeck(cards = []) {
 
     // Initialize the properties through the setters.
     this.cards = cards;
-
-// TODO: Array of cards, shuffle cards, draw cards, sum cards...
 }
 
 

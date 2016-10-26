@@ -46,9 +46,6 @@ function Dealer(shuffled, hand = []) {
     // Initialize the properties through the setters.
     this.shuffled = shuffled;
     this.hand = hand;
-
-// TODO: Array of cards, shuffle cards, draw cards, sum cards...
-
 }
 
 /**
@@ -81,7 +78,6 @@ Dealer.prototype.dealCard = function() {
  */
 Dealer.prototype.showHand = function() {
     let copyOfHand = this.hand.slice();
-    //console.log(copyOfHand);
     let hand = '';
 
     for (let i = 0; i < copyOfHand.length; i += 1) {

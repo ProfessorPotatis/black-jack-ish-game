@@ -45,27 +45,6 @@ try {
         let cardtable2 = new CardTable(player1.showHand(), player1.sumCards(), dealer.showHand(), dealer.sumCards());
         console.log(cardtable2.printResult());
     }
-
-    /*if (player1.sumCards() < 21 && numOfCards === 5) {
-        dealer.saveCard(dealer.dealCard());
-        let numOfCards = 1;
-        while (dealer.sumCards() <= 15 && numOfCards <= 5) {
-            dealer.saveCard(dealer.dealCard());
-            numOfCards += 1;
-        }
-    }
-    /*player1.saveCard(dealer.dealCard());
-    player1.saveCard(dealer.dealCard());
-    player1.saveCard(dealer.dealCard());
-    console.log(player1.sumCards());*/
-
-    /*dealer.saveCard(dealer.dealCard());
-    dealer.saveCard(dealer.dealCard());
-    dealer.saveCard(dealer.dealCard());
-    console.log(dealer.sumCards());*/
-
-    //let cardtable = new CardTable(player1.showHand(), player1.sumCards(), dealer.showHand(), dealer.sumCards());
-    //console.log(cardtable.printResult());
     }
 } catch (e) {
     console.error('ERROR: ', e.message);
