@@ -25,11 +25,11 @@ try {
 
     for (let i = 0; i < 15; i += 1) {
         let player = new Player();
-        let gameplay = new GamePlay(dealer, player, cardtableTest);
+        let dplayer = new Player();
+        let gameplay = new GamePlay(dealer, player, dplayer, cardtableTest);
 
         console.log('Player #' + (i + 1) + ':\n');
         gameplay.play();
-        dealer.tossCards();
         console.log('---------------------------');
     }
     }

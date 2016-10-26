@@ -100,7 +100,6 @@ Player.prototype.sumCards = function() {
     return totalSum;
 };
 
-
 /**
 *  Exports.
 */

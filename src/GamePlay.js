@@ -14,8 +14,8 @@
  * @constructor
  *
  */
-function GamePlay(dealer, player, cardtable) {
-    let _dealer, _player, _cardtable;
+function GamePlay(dealer, player, dplayer, cardtable) {
+    let _dealer, _player, _dplayer, _cardtable;
 
     Object.defineProperty(this, 'dealer', {
 
@@ -43,6 +43,19 @@ function GamePlay(dealer, player, cardtable) {
         }
     });
 
+    Object.defineProperty(this, 'dplayer', {
+
+        get: function() {
+            return _dplayer;
+        },
+
+        set: function(thePlayer) {
+            let zePlayer = thePlayer;
+
+            _dplayer = zePlayer;
+        }
+    });
+
     Object.defineProperty(this, 'cardtable', {
 
         get: function() {
@@ -59,6 +72,7 @@ function GamePlay(dealer, player, cardtable) {
     // Initialize the properties through the setters.
     this.dealer = dealer;
     this.player = player;
+    this.dplayer = dplayer;
     this.cardtable = cardtable;
 }
 
@@ -82,11 +96,11 @@ GamePlay.prototype.play = function() {
         this.cardtable.clone(this.player.showHand(), this.player.sumCards());
         console.log(this.cardtable.printResult());
     } else if (this.player.sumCards() < 21) {
-        this.dealer.saveCard(this.dealer.dealCard());
-        while (this.dealer.sumCards() < this.player.sumCards() && this.dealer.sumCards() !== this.player.sumCards()) {
-            this.dealer.saveCard(this.dealer.dealCard());
+        this.dplayer.saveCard(this.dealer.dealCard());
+        while (this.dplayer.sumCards() < this.player.sumCards() && this.dplayer.sumCards() !== this.player.sumCards()) {
+            this.dplayer.saveCard(this.dealer.dealCard());
         }
-        this.cardtable.clone(this.player.showHand(), this.player.sumCards(), this.dealer.showHand(), this.dealer.sumCards());
+        this.cardtable.clone(this.player.showHand(), this.player.sumCards(), this.dplayer.showHand(), this.dplayer.sumCards());
         console.log(this.cardtable.printResult());
     }
 };
