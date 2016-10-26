@@ -48,12 +48,21 @@ function Dealer(shuffled, hand = []) {
     this.hand = hand;
 }
 
+Dealer.prototype.cards = function() {
+    return this.shuffled;
+};
+
 /**
  * Returns array representing instance.
  *
  * @returns {Array}
  */
 Dealer.prototype.dealCard = function() {
+    if (this.shuffled.length === 1) {
+        let newCardDeck = new CardDeck();
+        this.shuffled = newCardDeck.shuffle();
+    }
+
     let cardDeck = this.shuffled.slice();
     let dealtCard = cardDeck.splice(0, 1);
 
@@ -131,6 +140,10 @@ Dealer.prototype.tossCards = function() {
     this.hand = [];
 };
 
+/**
+*  Imports.
+*/
+const CardDeck = require('./CardDeck.js');
 
 /**
 *  Exports.
